@@ -1,0 +1,161 @@
+$enable-shadows: true;
+$enable-gradients: true;
+$enable-shadows: true;
+
+// Customize some defaults
+$body-color: #333;
+$body-bg: #fff;
+$border-radius: 0.4rem;
+
+// $success: #7952b3;
+
+@import 'bootstrap/scss/bootstrap';
+
+$headerHeight: 70px;
+
+.main {
+  padding: $headerHeight 0 0 0;
+
+  .no-data:not(:first-child) {
+    display: none;
+  }
+}
+
+.no-data {
+  display: grid;
+  height: calc(100vh - #{$headerHeight});
+  align-items: center;
+  justify-items: center;
+}
+
+.download-template,
+.file-field {
+  display: none;
+}
+
+.ad-groupe-container {
+  height: calc(100vh - 400px);
+  overflow-y: auto;
+}
+.tab-pane {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+.accordion-body {
+  position: relative;
+  min-height: 300px;
+
+  .ad-group__remove {
+    position: absolute;
+    right: 20px;
+    z-index: 100;
+  }
+}
+
+.ad-config-container {
+  list-style: none;
+  padding: 0;
+}
+
+.column-view {
+  display: grid;
+  grid-template-columns: 1fr 85px;
+  grid-column-gap: 15px;
+  align-items: center;
+  min-height: 28px;
+
+  .__fields,
+  .__editable {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-column-gap: 15px;
+
+    textarea {
+      resize: none;
+    }
+  }
+
+  .__fields {
+    span {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  .__editable {
+    display: none;
+    position: relative;
+  }
+
+  .__edit,
+  .__control {
+    display: inline-flex;
+  }
+  .__edit {
+    display: none;
+  }
+
+  &.show-edit {
+    .__editable {
+      display: grid;
+    }
+    .__fields {
+      display: none;
+    }
+    .__control {
+      display: none;
+    }
+    .__edit {
+      display: inline-flex;
+    }
+  }
+
+  &.__invalid {
+    border-bottom: 1px solid #ff0000;
+  }
+
+  &.__headlines,
+  &.__descriptions {
+    .__fields,
+    .__editable {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 35px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #333;
+  margin: 0;
+  padding: 5px;
+  width: 350px;
+  max-width: 350px;
+  box-sizing: border-box;
+  background: #fff;
+  z-index: 5;
+
+  .__item {
+    display: flex;
+    border-bottom: 1px solid #333;
+    padding: 8px 0;
+
+    // TODO separate class for selected and for hover
+    &:hover,
+    &.selected:not(:hover) {
+      background-color: #888888;
+      color: #fff;
+      border-color: #fff;
+    }
+  }
+}
+
+.ad-groupe-container {
+  list-style: none;
+}

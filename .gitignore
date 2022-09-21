@@ -1,0 +1,8 @@
+node_modules/
+*.zip
+.idea
+.DS_Store
+
+public/bundle.*
+public/style.*
+template_example.json
